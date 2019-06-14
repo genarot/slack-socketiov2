@@ -1,0 +1,12 @@
+{
+  "name": "socketiov2-slack",
+  "version": "1.0.0",
+  "description": "Slack clone with socket",
+  "main": "index.js",
+  "author": "Genaro Jose Tinoco Palacios <gtinoco@agssa.net>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "2.2.0"
+  }
+}
