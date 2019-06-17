@@ -1,6 +1,8 @@
+let instanceCounter = 0;
 class Namespace{
-    constructor(id, nsTitle, img, endpoint){
-        this.id = id;
+    // static instanceCounter;
+    constructor( nsTitle, img, endpoint){
+        this.id = ++instanceCounter;
         this.img = img;
         this.nsTitle = nsTitle;
         this.endpoint = endpoint;
