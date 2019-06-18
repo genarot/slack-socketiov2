@@ -1,4 +1,5 @@
 function joinNs( endpoint) {
+    console.log('Joining to namespace', endpoint)
     nsSocket = io(`http://localhost:9000${endpoint}`, {
         path: '/socket10'
     });

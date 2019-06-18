@@ -5,6 +5,9 @@
   "main": "index.js",
   "author": "Genaro Jose Tinoco Palacios <gtinoco@agssa.net>",
   "license": "MIT",
+  "scripts": {
+    "start:dev": "nodemon --config "
+  },
   "dependencies": {
     "express": "^4.17.1",
     "socket.io": "2.2.0"

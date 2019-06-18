@@ -34,7 +34,8 @@ namespaces.forEach(Ns => {
         console.log(`${nsSocket.id} has join to ${Ns.endpoint}`)
         // a socket has connected to one of our chatgroup namespaces.
         // send that ns group info back
-        nsSocket.emit('nsRoomLoad', namespaces[0].rooms)
+
+        nsSocket.emit('nsRoomLoad',  namespaces.find(ns => ns.endpoint === Ns.endpoint).rooms)
         nsSocket.on('joinRoom', (roomName, numberOfUserCallback) => {
             // Deal with the history... once that have it
             nsSocket.join(roomName);

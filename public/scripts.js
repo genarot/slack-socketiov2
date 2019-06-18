@@ -19,8 +19,13 @@ socket.on('nsList', nsData => {
     const DOMNamespaces =  document.querySelector('.namespaces');
     DOMNamespaces.innerHTML = '';
     function clickListener(evt) {
-        const nsEndpoint = evt.target.parentElement.getAttribute('ns');
+        // if (event.currentTarget !== event.target) {
+        //     return;
+        // }
+        console.log(event.currentTarget, event.target)
+        const nsEndpoint = evt.currentTarget.getAttribute('ns');
         console.log(`I should go to ${nsEndpoint}`)
+        joinNs(nsEndpoint);
     }
     nsData.forEach(ns => {
         nodeNamespace(ns, DOMNamespaces, clickListener);
