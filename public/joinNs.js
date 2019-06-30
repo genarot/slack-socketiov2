@@ -1,7 +1,7 @@
 function joinNs(endpoint) {
     console.log('Joining to namespace', endpoint);
-    nsSocket = io(`http://localhost:9000${endpoint}`, {
-        path: '/socket10'
+    nsSocket = io(`http://localhost:3000${endpoint}`, {
+        // path: '/socket10'
     });
 
     nsSocket.on('nsRoomLoad', nsRooms => {

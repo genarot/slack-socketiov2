@@ -1,6 +1,4 @@
-const socket = io('http://localhost:9000',{
-    path: '/socket10',
-});
+const socket = io('http://localhost:3000');
 let nsSocket = "";
 
 const nodeNamespace = (nsInfo, nsDOM, clickListener) => {
@@ -13,7 +11,18 @@ const nodeNamespace = (nsInfo, nsDOM, clickListener) => {
     node.addEventListener('click', clickListener);
     nsDOM.appendChild(node);
 };
-
+socket.on("connect" , ()=> {
+    socket.emit('REGISTER_USER','genaro' )
+})
+socket.on("CLOSE_SESSION", () =>{
+    alert('ya vali verga')
+})
+socket.on('group-activity-10', (newUser) => {
+    console.log('Activity en el grupo 10')
+})
+socket.on("disconnect", () => {
+    console.log("malditos me desconectaron")
+})
 socket.on('nsList', nsData => {
     console.log('The list of namespaces, received is', nsData);
     const DOMNamespaces =  document.querySelector('.namespaces');
@@ -25,10 +34,10 @@ socket.on('nsList', nsData => {
         console.log(event.currentTarget, event.target)
         const nsEndpoint = evt.currentTarget.getAttribute('ns');
         console.log(`I should go to ${nsEndpoint}`)
-        joinNs(nsEndpoint);
+        // joinNs(nsEndpoint);
     }
     nsData.forEach(ns => {
         nodeNamespace(ns, DOMNamespaces, clickListener);
     })
-    joinNs('/wiki')
+    // joinNs('/wiki')
 })

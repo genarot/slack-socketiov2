@@ -14,7 +14,7 @@ const app = express();
 const httpServer = http.createServer(app);
 
 const io= socketio(httpServer,{
-    path:'/socket10',
+    // path:'/socket10',
     serveClient: true
 });
 
